@@ -27,7 +27,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.SystemProperties;
@@ -45,7 +44,7 @@ import com.android.settings.nfc.NfcEnabler;
 import com.android.settings.NsdEnabler;
 
 public class WirelessSettings extends SettingsPreferenceFragment {
-    private static final String TAG = "WirelessSettiings";
+    private static final String TAG = "WirelessSettings";
 
     private static final String KEY_TOGGLE_AIRPLANE = "toggle_airplane";
     private static final String KEY_TOGGLE_NFC = "toggle_nfc";
@@ -97,21 +96,22 @@ public class WirelessSettings extends SettingsPreferenceFragment {
     }
 
     private String mManageMobilePlanMessage;
-
+    private static final String CONNECTED_TO_PROVISIONING_NETWORK_ACTION
+            = "com.android.server.connectivityservice.CONNECTED_TO_PROVISIONING_NETWORK_ACTION";
     public void onManageMobilePlanClick() {
         log("onManageMobilePlanClick:");
         mManageMobilePlanMessage = null;
         Resources resources = getActivity().getResources();
 
-        NetworkInfo ni = mCm.getActiveNetworkInfo();
+        NetworkInfo ni = mCm.getProvisioningOrActiveNetworkInfo();
         if (mTm.hasIccCard() && (ni != null)) {
             // Get provisioning URL
-            String url = getProvisioningUrl();
+            String url = mCm.getMobileProvisioningUrl();
             if (!TextUtils.isEmpty(url)) {
-                // Send user to provisioning webpage
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                startActivity(intent);
+                Intent intent = new Intent(CONNECTED_TO_PROVISIONING_NETWORK_ACTION);
+                intent.putExtra("EXTRA_URL", url);
+                Context context = getActivity().getBaseContext();
+                context.sendBroadcast(intent);
                 mManageMobilePlanMessage = null;
             } else {
                 // No provisioning URL
@@ -143,26 +143,6 @@ public class WirelessSettings extends SettingsPreferenceFragment {
             log("onManageMobilePlanClick: message=" + mManageMobilePlanMessage);
             showDialog(MANAGE_MOBILE_PLAN_DIALOG_ID);
         }
-    }
-
-    private String getProvisioningUrl() {
-        String url = getActivity().getResources()
-                .getString(com.android.internal.R.string.mobile_provisioning_url);
-        log("getProvisioningUrl: mobile_provisioning_url=" + url);
-
-        // populate the iccid, imei and phone number in the provisioning url.
-        if (!TextUtils.isEmpty(url)) {
-            String phoneNumber = mTm.getLine1Number();
-            if (TextUtils.isEmpty(phoneNumber)) {
-                phoneNumber = "0000000000";
-            }
-            url = String.format(url,
-                    mTm.getSimSerialNumber() /* ICCID */,
-                    mTm.getDeviceId() /* IMEI */,
-                    phoneNumber /* Phone number */);
-        }
-
-        return url;
     }
 
     @Override
