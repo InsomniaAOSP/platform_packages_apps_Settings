@@ -24,8 +24,6 @@
     <skip />
     <!-- no translation found for deny (6947806159746484865) -->
     <skip />
-    <string name="day" msgid="7984755014526510295">"1 di"</string>
-    <string name="days" msgid="2070509222727852210">"<xliff:g id="DAYS">%s</xliff:g> dis"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Nunenconuschent"</string>
     <!-- no translation found for show_dev_countdown:one (5295687242294085452) -->
     <!-- no translation found for show_dev_countdown:other (6722953419953594148) -->
@@ -1686,7 +1684,7 @@
     <skip />
     <!-- no translation found for reset_app_preferences_title (6093179367325336662) -->
     <skip />
-    <!-- no translation found for reset_app_preferences_desc (4822447731869201512) -->
+    <!-- no translation found for reset_app_preferences_desc (1118129530999596317) -->
     <skip />
     <!-- no translation found for reset_app_preferences_button (2559089511841281242) -->
     <skip />
@@ -3078,9 +3076,7 @@
     <skip />
     <!-- no translation found for wizard_finish (3286109692700083252) -->
     <skip />
-    <!-- no translation found for user_image_take_photo (1280274310152803669) -->
-    <!-- no translation found for user_image_take_photo (7496128293167402354) -->
-    <skip />
+    <string name="user_image_take_photo" msgid="1280274310152803669">"Far ina foto"</string>
     <!-- no translation found for user_image_choose_photo (7940990613897477057) -->
     <!-- no translation found for user_image_choose_photo (3746334626214970837) -->
     <skip />

@@ -26,10 +26,6 @@
     <!-- Strings for Dialog allow button -->
     <string name="allow">Allow</string>
 
-    <!-- Strings for uptime -->
-    <string name="day">"1 day"</string>
-    <string name="days">"<xliff:g id="days">%s</xliff:g> days"</string>
-
     <!-- Strings for Dialog deny button -->
     <string name="deny">Deny</string>
 
@@ -49,7 +45,6 @@
     <!-- Category headings in left-pane header menu --> <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
     <string name="header_category_wireless_networks">WIRELESS &amp; NETWORKS</string>
-
     <!-- Settings main menu category heading. Device (Sound, display, battery, applications...). [CHAR LIMIT=40] -->
     <string name="header_category_device">DEVICE</string>
     <!-- Settings main menu category heading. Personal (Accounts, security, language, backup...). [CHAR LIMIT=40] -->
@@ -1932,9 +1927,6 @@
     <string name="build_number">Build number</string>
     <!-- About phone screen,  setting option name-->
     <string name="selinux_status">SELinux status</string>
-    <!-- About phone screen,  setting option name-->
-    <string name="mod_version">Mod version</string>
-    <string name="mod_version_default">Unknown</string>
 
     <!-- About phone screen, show when a value of some status item is unavailable. -->
     <string name="device_info_not_available">Not available</string>
@@ -4345,12 +4337,6 @@
     <string name="selinux_status_permissive">Permissive</string>
     <string name="selinux_status_enforcing">Enforcing</string>
 
- 
-    <!-- Main settings screen, setting title for the user to open the Themes app -->
-    <string name="themes_settings">Themes</string>
-    <!-- Advanced, Device specific (DeviceParts) settings  -->
-    <string name="advanced_settings_title">Advanced</string>
-
     <!-- User settings -->
     <skip/>
 
@@ -4549,12 +4535,4 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
-
-    <!-- Hostname setting -->
-    <string name="device_hostname">Device hostname</string>
-
-    <!-- convert sound to vibration toggle -->
-    <string name="notification_convert_sound_to_vibration_title">Vibrate on notification</string>
-    <string name="notification_convert_sound_to_vibration_summary">In vibrate mode, all notifications will vibrate regardless of individual app settings</string>
-
 </resources>

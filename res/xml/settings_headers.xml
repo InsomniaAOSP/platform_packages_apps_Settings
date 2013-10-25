@@ -58,35 +58,6 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
-
-  
-       
-
-    <!-- Themes -->
-    <header
-        android:id="@+id/themes_settings"
-        android:icon="@drawable/ic_settings_themes"
-        android:title="@string/themes_settings" >
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.tmobile.themechooser"
-            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
-
-   
-   
-
-    <!-- DeviceParts Device Specific settings -->
-    <header
-        android:id="@+id/advanced_settings"
-        android:icon="@drawable/ic_settings_advanced"
-        android:title="@string/advanced_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
-    </header>
-
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
@@ -139,6 +110,7 @@
         android:id="@+id/manufacturer_settings">
         <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
     </header>
+
 
     <!-- PERSONAL -->
     <header android:id="@+id/personal_section"
@@ -216,6 +188,5 @@
         android:fragment="com.android.settings.DeviceInfoSettings"
         android:icon="@drawable/ic_settings_about"
         android:title="@string/about_settings" />
-
 
 </preference-headers>
